@@ -1,0 +1,440 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding-top: 70px; /* Height of the navbar */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #ed8a94 !important;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Bootstrap's navbar z-index */
+    padding: 0.5rem 1rem;
+}
+
+.navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Offcanvas Sidebar Styling */
+.offcanvas {
+    width: 250px;
+}
+
+.custom-offcanvas {
+    background-color: #ed8a94;
+}
+
+.custom-offcanvas .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.custom-offcanvas .offcanvas-title {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.custom-offcanvas .btn-close {
+    filter: brightness(0) invert(1); /* Make close button white */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    padding: 1rem;
+}
+
+.sidebar-logo {
+    width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+/* Menu List Styling */
+.menu-list {
+    list-style: none;
+}
+
+.menu-list .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-list .menu-item i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    width: 20px; /* Ensure icons have consistent width */
+    text-align: center;
+}
+
+.menu-list .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.menu-list .menu-item.active {
+    background-color: #ffffff;
+    color: #ed8a94;
+}
+
+.menu-list .menu-item.active i {
+    color: #ed8a94;
+}
+
+/* Sidebar Hover Effect */
+.sidebar nav ul li a.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Logout Button Styling */
+.menu-list form button.menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-list form button.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Content Area */
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .sidebar-logo {
+        max-height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .menu-list .menu-item {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .menu-list .menu-item i {
+        font-size: 1rem;
+        margin-right: 8px;
+    }
+}
+
+/* Additional Styling for Card (Login Form) */
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #040303;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #ed8a94;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d77a85;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Form Pencarian */
+.cool-md-4,
+.cool-md-3 {
+    margin-bottom: 1rem;
+}
+
+/* Input dan Select */
+.form-control,
+.form-select {
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Tombol */
+.btn-add,
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn-add:hover,
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.content {
+    margin-top: 70px;
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+}
+
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: none;
+}
+
+.card-header i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Tabel Styling */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Menambahkan ellipsis jika teks terlalu panjang */
+}
+
+.table thead.table-primary th {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9fcfa;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Icons */
+.action-icon {
+    font-size: 18px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.action-icon:hover {
+    color: #74c0fc;
+}
+
+.fa-eye:hover {
+    color: #63e6be;
+}
+
+.fa-pen-to-square:hover {
+    color: #74c0fc;
+}
+
+.fa-trash:hover {
+    color: #fb2828;
+}
+
+/* Tombol Tambah Profil */
+.btn-add {
+    display: inline-block;
+    background-color: #2d68de;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #0140d1;
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center; /* Memusatkan pagination */
+    padding: 20px 0;
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Jarak antar tombol pagination */
+}
+
+.pagination .page-link {
+    padding: 8px 12px; /* Ukuran tombol pagination */
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #007bff;
+    color: #ffffff;
+    border-color: #007bff;
+}
+
+.pagination .page-link:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    cursor: not-allowed;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+/* Mengatur ukuran ikon pada pagination */
+.pagination .page-link .fa {
+    font-size: 12px; /* Ukuran ikon panah */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .sidebar img {
+        height: 150px; /* Mengurangi tinggi gambar di sidebar */
+        margin-bottom: 15px;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+
+    .card-header {
+        flex-direction: column;
+    }
+
+    .card-header i {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+
+    .btn-add {
+        width: 100%;
+        text-align: center;
+    }
+
+    .table th,
+    .table td {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .pagination .page-link {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .pagination .page-link .fa {
+        font-size: 10px; /* Ukuran ikon panah untuk layar kecil */
+    }
+
+    /* Adjust action icons size */
+    .action-icon {
+        font-size: 16px;
+    }
+}
+
+.bg-pastel-pink {
+    background-color: #ffd1dc !important;
+}
+
+/* Search Form */
+.search-form {
+    width: 100%;
+}
+
+.search-form input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+

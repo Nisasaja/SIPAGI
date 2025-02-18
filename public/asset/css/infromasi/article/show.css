@@ -1,0 +1,124 @@
+/* CSS Dasar */
+.article-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+    font-family: "Georgia", serif;
+    overflow-wrap: break-word;
+}
+
+.article-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.article-summary {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article-content {
+    font-size: 1.1em;
+    color: #444;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #0056b3;
+}
+
+/* Efek seperti lembaran buku */
+.article-container {
+    position: relative;
+    background: #fafafa;
+    padding: 50px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.article-container::before,
+.article-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    background: #f0f0f0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.article-container::before {
+    left: -50px;
+}
+
+.article-container::after {
+    right: -50px;
+}
+
+/* Media Query untuk Tablet */
+@media (max-width: 768px) {
+    .article-container {
+        padding: 20px;
+    }
+
+    .article-title {
+        font-size: 2em;
+    }
+
+    .article-content {
+        padding: 0;
+        font-size: 1em;
+    }
+
+    .article-container::before,
+    .article-container::after {
+        width: 25px;
+    }
+}
+
+/* Media Query untuk Ponsel */
+@media (max-width: 480px) {
+    .article-container {
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    .article-title {
+        font-size: 1.5em;
+    }
+
+    .article-summary {
+        font-size: 1em;
+    }
+
+    .article-content {
+        font-size: 0.9em;
+        padding: 0;
+    }
+
+    .article-container::before,
+    .article-container::after {
+        display: none;
+    }
+}

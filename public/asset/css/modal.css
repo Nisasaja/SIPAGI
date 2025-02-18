@@ -1,0 +1,106 @@
+.modal-header {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.modal-body {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.category-section {
+    border-left: 5px solid transparent;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.category-section h6 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Data Orang Tua */
+.parent-info {
+    background-color: #f0f8ff;
+    border-left-color: #63e6be;
+}
+
+.parent-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.parent-info ul li {
+    margin-bottom: 8px;
+}
+
+/* Data Anak */
+.child-info {
+    background-color: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+.child-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.child-info ul li {
+    margin-bottom: 8px;
+}
+
+/* Data Sanitasi & Kesehatan */
+.sanitation-info {
+    background-color: #d1ecf1;
+    border-left-color: #17a2b8;
+}
+
+.sanitation-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sanitation-info ul li {
+    margin-bottom: 8px;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+}
+
+button.btn-secondary {
+    background-color: #cc0909;
+    border-color: #cc0909;
+}
+
+button.btn-secondary:hover {
+    background-color: #cc0909;
+    border-color: #cc0909;
+}
+
+.filter-container {
+    margin-top: 10px;
+    background-color: #f8f9fa; /* Warna latar belakang form */
+    border: 1px solid #dee2e6; /* Border ringan */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-form {
+    gap: 15px; /* Jarak antar elemen di dalam form */
+}
+
+.filter-form .form-select,
+.filter-form .form-control {
+    border-radius: 5px; /* Membuat sudut input lebih halus */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

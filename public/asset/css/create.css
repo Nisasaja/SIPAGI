@@ -1,0 +1,198 @@
+/* ----------------------------
+   General Styles
+----------------------------- */
+
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1000px; /* Sesuaikan lebar container */
+    margin: 50px auto;
+    padding: 20px;
+}
+
+/* Heading */
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007bff;
+    font-size: 2em;
+}
+
+/* Alert Styling */
+.alert-danger {
+    border-radius: 5px;
+    padding: 15px 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin-bottom: 20px;
+}
+
+.alert-danger ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    gap: 20px; /* Space between cards */
+}
+
+/* Card Styling */
+.form-card {
+    width: 100%; /* Full width */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Card Header */
+.card-header {
+    padding: 15px 20px;
+    background-color: #007bff; /* Default warna biru */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content horizontally */
+    text-align: center;
+}
+
+/* Warna Header Kartu Tambahan */
+.card-header.bg-success {
+    background-color: #28a745; /* Hijau untuk Data Balita */
+}
+
+.card-header.bg-info {
+    background-color: #17a2b8; /* Biru kehijauan untuk Sanitasi */
+}
+
+.card-header i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Card Body */
+.card-body {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label Styling */
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #495057;
+}
+
+/* Input and Select Styling */
+.form-control {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Button Styling */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .container h1 {
+        font-size: 1.8em;
+    }
+
+    .form-container {
+        gap: 15px;
+    }
+
+    .form-card {
+        padding: 15px;
+    }
+
+    .card-header {
+        padding: 10px 15px;
+    }
+
+    .card-header i {
+        font-size: 1em;
+        margin-right: 5px;
+    }
+
+    .form-card .card-header {
+        display: flex;
+        align-items: center; /* Vertikal */
+        ; /* Horizontal */
+    }
+
+    .form-card .card-header h5 {
+        margin: 0; /* Menghilangkan margin default */
+    }
+
+    .card-body {
+        padding: 15px;
+        grid-template-columns: 1fr 1fr; /* 2 columns on smaller screens */
+    }
+
+    .form-control {
+        font-size: 0.95em;
+        padding: 8px 12px;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
