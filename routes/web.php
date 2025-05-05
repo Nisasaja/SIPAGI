@@ -101,6 +101,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/data-per-bulan-tahun/{bulan}/{tahun}', [PengukuranController::class, 'dataPerBulanTahun'])->name('data.per.bulan.tahun');
     Route::get('/data-per-bulan/{bulan}', [PengukuranController::class, 'dataPerBulan']);
     Route::get('/search-pengukuran', [PengukuranController::class, 'searchPengukuran'])->name('search.pengukuran');
+    Route::get('/api/data/{year}', [DashboardController::class, 'getMonthlyData']);
+    Route::get('/galeri', [GaleriKegiatanController::class, 'index'])->name('galeri.index');
+    Route::get('/galeri/create', [GaleriKegiatanController::class, 'create'])->name('galeri.create');
+    Route::get('/galeri/{id}/edit', [GaleriKegiatanController::class, 'edit'])->name('galeri.edit');
+    Route::get('/galeri/{id}', [GaleriKegiatanController::class, 'show'])->name('galeri.show');
+    Route::post('/galeri', [GaleriKegiatanController::class, 'store'])->name('galeri.store');
+    Route::delete('/galeri/{galeri}', [GaleriKegiatanController::class, 'destroy'])->name('galeri.destroy');
 });
 
 

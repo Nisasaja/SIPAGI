@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Pengukuran;
 use App\Models\Profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Auth;
+use Laracsv\Export; // Add this line
 
 class PengukuranController extends Controller
 {
@@ -87,79 +91,50 @@ class PengukuranController extends Controller
     }
 
     public function download(Request $request)
-    {
-        // Logging (opsional)
-        Log::info('Download CSV triggered', [
-            'search' => $request->input('search'),
-            'month' => $request->input('month'),
-        ]);
-
-        $search = $request->input('search');
-        $month = $request->input('month');
-
-        $query = Pengukuran::with('profile');
-
-        // Filter berdasarkan pencarian
-        if ($search) {
-            $query->whereHas('profile', function ($q) use ($search) {
-                $q->where('nama_anak', 'like', '%' . $search . '%');
-            });
-        }
-
-        // Filter berdasarkan bulan
-        if ($month) {
-            $query->whereMonth('tanggal_pengukuran', $month);
-        }
-
-        // Mengambil data pengukuran
-        $pengukuran = $query->get();
-
-        // Membuat array untuk CSV
-        $csvData = [];
-        // Menambahkan header
-        $csvData[] = [
-            'Nama Anak',
-            'Jenis Kelamin',
-            'Tanggal Lahir',
-            'Tanggal Pengukuran',
-            'Berat Badan (kg)',
-            'Tinggi Badan (cm)',
-            'Status BB/U',
-            'Status TB/U'
-        ];
-
-        // Menambahkan data pengukuran
-        foreach ($pengukuran as $data) {
-            $csvData[] = [
-                $data->profile->nama_anak,
-                $data->profile->jenis_kelamin,
-                \Carbon\Carbon::parse($data->profile->tanggal_lahir)->format('d M Y'),
-                \Carbon\Carbon::parse($data->tanggal_pengukuran)->format('d M Y'),
-                number_format($data->berat_badan, 2),
-                number_format($data->tinggi_badan, 2),
-                $data->status_bb_u,
-                $data->status_tb_u
-            ];
-        }
-
-        // Membuat CSV string
-        $filename = "data_pengukuran_" . date('Ymd_His') . ".csv";
-        $handle = fopen('php://temp', 'r+');
-
-        // Menulis data ke file
-        foreach ($csvData as $row) {
-            fputcsv($handle, $row);
-        }
-
-        rewind($handle);
-        $content = stream_get_contents($handle);
-        fclose($handle);
-
-        // Mengirimkan response CSV menggunakan helper function
-        return response($content, 200)
-            ->header('Content-Type', 'text/csv')
-            ->header('Content-Disposition', "attachment; filename=\"{$filename}\"");
+{
+    // Cek Hak Akses
+    if (!in_array(Auth::user()->role, ['Admin', 'Kader', 'Manager'])) {
+        return redirect()->route('landingpage')->with('error', 'Unauthorized access.');
     }
+
+    // Query Data Pengukuran
+    $pengukuran = Pengukuran::with('profile');
+
+    // Filter Berdasarkan Nama Anak (Jika Ada)
+    if ($request->has('search')) {
+        $pengukuran->whereHas('profile', function ($query) use ($request) {
+            $query->where('nama_anak', 'like', '%' . $request->search . '%');
+        });
+    }
+
+    // Filter Berdasarkan Bulan
+    if ($request->has('month') && !empty($request->month)) {
+        $pengukuran->whereMonth('tanggal_pengukuran', $request->month);
+    }
+
+    // Filter Berdasarkan Tahun
+    if ($request->has('year') && !empty($request->year)) {
+        $pengukuran->whereYear('tanggal_pengukuran', $request->year);
+    }
+
+    // Ambil Data
+    $data = $pengukuran->get();
+
+    // Buat dan Unduh CSV
+    $csvExporter = new Export();
+    $csvExporter->build($data, [
+        'profile.nama_anak' => 'Nama Anak',
+        'profile.alamat' => 'Alamat',
+        'tanggal_pengukuran' => function ($row) {
+            return \Carbon\Carbon::parse($row->tanggal_pengukuran)->format('d-m-Y');
+        },
+        'berat_badan' => 'Berat Badan (kg)',
+        'tinggi_badan' => 'Tinggi Badan (cm)',
+        'status_bb_u' => 'Status BB/U',
+        'status_tb_u' => 'Status TB/U',
+    ])->download('data_pengukuran.csv');
+}
+
 
     public function show($id)
     {

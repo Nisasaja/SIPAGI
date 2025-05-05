@@ -47,29 +47,29 @@
 </div>
 @endsection
 
-    <style>
-        /* Gaya untuk tampilan card */
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 12px;
-        }
+<style>
+    /* Gaya untuk tampilan card */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 12px;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Style pada badge */
-        .position-absolute {
-            border-radius: 0 8px 8px 0;
-        }
+    /* Style pada badge */
+    .position-absolute {
+        border-radius: 0 8px 8px 0;
+    }
 
-        /* Teks yang lebih ramah di layar kecil */
-        .card-title {
-            font-size: 1rem;
-        }
+    /* Teks yang lebih ramah di layar kecil */
+    .card-title {
+        font-size: 1rem;
+    }
 
-        .card-text {
-            font-size: 0.875rem;
-        }
-    </style>
+    .card-text {
+        font-size: 0.875rem;
+    }
+</style>

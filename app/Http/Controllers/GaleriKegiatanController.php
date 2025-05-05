@@ -30,11 +30,14 @@ class GaleriKegiatanController extends Controller
         return view('informasi.galeri.edit', compact('galeri'));
     }
 
-
     public function show($id)
     {
         $galeri = GaleriKegiatan::findOrFail($id);
-        return view('informasi.galeri.show', compact('galeri'));
+        if (in_array(auth()->user()->role, ['Admin', 'Kader', 'Manager'])) {
+            return view('informasi.galeri.show', compact('galeri'));
+        } else {
+            return redirect()->route('landingpage')->with('error', 'Anda tidak memiliki akses ke halaman ini.');
+        }
     }
 
     public function store(Request $request)
